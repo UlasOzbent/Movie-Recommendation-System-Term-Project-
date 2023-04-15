@@ -1,0 +1,43 @@
+{% block content %}
+
+<!DOCTYPE html>
+<html lang=""en>
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta name = "viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>MovieBase</title>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class=flashes>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+       {% endif %}
+    {% endwith %}
+    {% block body %}{% endblock %}
+
+    <meta name="keywords" content="MovieBase"/>
+    <meta name="description" content="MovieBase"/>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,300;1,200&display=swap" rel="stylesheet">
+    <link href="{{url_for('static', filename='css/n.css')}}" rel="stylesheet"/>
+    
+
+</head>
+
+
+
+<section id= 'mainmenu'>
+    <div class= "name text-center">
+        <p>Welcome {{movie_recommendation(form.movie_name)}}</p>
+    </div>
+</section>
+
+<br></br>
+
+
+{% endblock %}
